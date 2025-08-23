@@ -21,6 +21,16 @@ class BasicPractise:
         else:
             return "lesser"
 
+    def reverse_a_string(self) :
+        text = "Sumit"
+        using_slicing = text[::-1]
+        print("using_slicing method: ",using_slicing)
+
+        original_string = text
+        reversed_string = ""
+        for char in original_string:
+            reversed_string = char + reversed_string
+        print("Using loop: ",reversed_string)
 
 if __name__ == "__main__":
     basic_practise = BasicPractise()
@@ -28,3 +38,4 @@ if __name__ == "__main__":
     basic_practise.get_input()
     basic_practise.print_input()
     print(basic_practise.compare_numbers(3, 5))
+    basic_practise.reverse_a_string()
