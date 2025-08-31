@@ -37,6 +37,39 @@ class SortAlgorithms:
             array[i], array[min_index] = array[min_index], array[i]
         return array
 
+    # Merge Sort
+    def merge_sort(self, array=None):
+        if array is None:
+            array = self.array.copy()
+        if len(array) > 1:
+            middle_index = len(array) // 2
+            left_half = array[:middle_index]
+            right_half = array[middle_index:]
+
+            self.merge_sort(left_half)
+            self.merge_sort(right_half)
+
+            i = j = k = 0
+
+            while i < len(left_half) and j < len(right_half):
+                if left_half[i] < right_half[j]:
+                    array[k] = left_half[i]
+                    i += 1
+                else:
+                    array[k] = right_half[j]
+                    j += 1
+                k += 1
+
+            while i < len(left_half):
+                array[k] = left_half[i]
+                i += 1
+                k += 1
+            while j < len(right_half):
+                array[k] = right_half[j]
+                j += 1
+                k += 1
+        return array
+
 
 # Main program
 if __name__ == "__main__":
@@ -47,3 +80,4 @@ if __name__ == "__main__":
     print("Bubble Sort:", sort_algorithms.bubble_sort())
     print("Insertion Sort:", sort_algorithms.insertion_sort())
     print("Selection Sort:", sort_algorithms.selection_sort())
+    print("Merge Sort:", sort_algorithms.merge_sort())
