@@ -24,7 +24,7 @@ class DuplicateDetector:
                 duplicates.add(num)
             else:
                 seen.add(num)
-        return list(duplicates)
+        return  list(duplicates)
 
 
 # Main program
